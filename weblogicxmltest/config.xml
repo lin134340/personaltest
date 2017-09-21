@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain xsi:schemaLocation="http://xmlns.oracle.com/weblogic/security/wls http://xmlns.oracle.com/weblogic/security/wls/1.0/wls.xsd http://xmlns.oracle.com/weblogic/domain http://xmlns.oracle.com/weblogic/1.0/domain.xsd http://xmlns.oracle.com/weblogic/security http://xmlns.oracle.com/weblogic/1.0/security.xsd http://xmlns.oracle.com/weblogic/security/xacml http://xmlns.oracle.com/weblogic/security/xacml/1.0/xacml.xsd" xmlns="http://xmlns.oracle.com/weblogic/domain" xmlns:sec="http://xmlns.oracle.com/weblogic/security" xmlns:wls="http://xmlns.oracle.com/weblogic/security/wls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>test_domain</name>
+  <domain-version>10.3.6.0</domain-version>
+  <security-configuration xmlns:xacml="http://xmlns.oracle.com/weblogic/security/xacml" xmlns:pas="http://xmlns.oracle.com/weblogic/security/providers/passwordvalidator">
+    <name>test_domain</name>
+    <realm>
+      <sec:authentication-provider xsi:type="wls:default-authenticatorType"/>
+      <sec:authentication-provider xsi:type="wls:default-identity-asserterType">
+        <sec:active-type>AuthenticatedUser</sec:active-type>
+      </sec:authentication-provider>
+      <sec:role-mapper xsi:type="xacml:xacml-role-mapperType"/>
+      <sec:authorizer xsi:type="xacml:xacml-authorizerType"/>
+      <sec:adjudicator xsi:type="wls:default-adjudicatorType"/>
+      <sec:credential-mapper xsi:type="wls:default-credential-mapperType"/>
+      <sec:cert-path-provider xsi:type="wls:web-logic-cert-path-providerType"/>
+      <sec:cert-path-builder>WebLogicCertPathProvider</sec:cert-path-builder>
+      <sec:name>myrealm</sec:name>
+      <sec:password-validator xsi:type="pas:system-password-validatorType">
+        <sec:name>SystemPasswordValidator</sec:name>
+        <pas:min-password-length>8</pas:min-password-length>
+        <pas:min-numeric-or-special-characters>1</pas:min-numeric-or-special-characters>
+      </sec:password-validator>
+    </realm>
+    <default-realm>myrealm</default-realm>
+    <credential-encrypted>{AES}2Fc1JoxCmFZ8BPOXwXyOgRHU6PgFoZ5Mp9d64lcpVqcTpsowPhylvvYVa1vhPT9F3DsJQ3SZ+EpdKfYIJbcsQTM4fTx1afdgwE0X1yaGJc8jpb8fp9WH7nKczSzP0via</credential-encrypted>
+    <node-manager-username>h7SkISURke</node-manager-username>
+    <node-manager-password-encrypted>{AES}zbMZidho+VtZUV/ENF5p9rvx7JOo/8HrKo7wCO9fBRc=</node-manager-password-encrypted>
+  </security-configuration>
+  <server>
+    <name>AdminServer</name>
+    <machine>Machine1</machine>
+    <listen-port>17001</listen-port>
+    <listen-address/>
+  </server>
+  <server>
+    <name>ManagedServer1</name>
+    <machine>Machine1</machine>
+    <listen-port>17003</listen-port>
+    <cluster>Cluster1</cluster>
+    <listen-address/>
+    <jta-migratable-target>
+      <name>ManagedServer1</name>
+      <user-preferred-server>ManagedServer1</user-preferred-server>
+      <cluster>Cluster1</cluster>
+    </jta-migratable-target>
+  </server>
+  <cluster>
+    <name>Cluster1</name>
+    <cluster-messaging-mode>unicast</cluster-messaging-mode>
+  </cluster>
+  <production-mode-enabled>true</production-mode-enabled>
+  <embedded-ldap>
+    <name>test_domain</name>
+    <credential-encrypted>{AES}CchBEFjDUsPPtL8Qj1DWbcTVv9Fyn43tkHdre5uvKaKxpvBheUFKy1fT33szsY0U</credential-encrypted>
+  </embedded-ldap>
+  <configuration-version>10.3.6.0</configuration-version>
+  <machine>
+    <name>Machine1</name>
+    <node-manager>
+      <name>Machine1</name>
+      <listen-address>localhost</listen-address>
+    </node-manager>
+  </machine>
+  <admin-server-name>AdminServer</admin-server-name>
+</domain>

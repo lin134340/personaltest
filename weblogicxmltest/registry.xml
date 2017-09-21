@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><bea-product-information xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:gpr="http://www.bea.com/ns/cie/gpr">
+  <host home="/home/weblogic/Oracle/Middleware" name="bogon">
+    <product format="1.0" name="WebLogic Platform">
+      <release level="10.3" ServicePackLevel="6" PatchLevel="0" Status="installed" InstallTime="Aug 14, 2017 8:43:50 PM" InstallDir="/home/weblogic/Oracle/Middleware">
+        <component name="Common Infrastructure Engineering" version="7.4.0.0" InstallDir="">
+          <component name="Uninstall"/>
+          <component name="Patch Client"/>
+          <component name="Patch Attachment Facility"/>
+          <component name="Clone Facility"/>
+        </component>
+        <component name="WebLogic Server" version="10.3.6.0" InstallDir="/home/weblogic/Oracle/Middleware/wlserver_10.3">
+          <component name="Core Application Server"/>
+          <component name="Administration Console"/>
+          <component name="Configuration Wizard and Upgrade Framework"/>
+          <component name="Web 2.0 HTTP Pub-Sub Server"/>
+          <component name="WebLogic SCA"/>
+          <component name="WebLogic JDBC Drivers"/>
+          <component name="Third Party JDBC Drivers"/>
+          <component name="WebLogic Server Clients"/>
+          <component name="WebLogic Web Server Plugins"/>
+          <component name="UDDI and Xquery Support"/>
+          <component name="Evaluation Database"/>
+          <component name="Workshop Code Completion Support"/>
+        </component>
+        <component name="Oracle Configuration Manager" version="10.3.5.0" InstallDir="">
+          <component name="Data Collector"/>
+        </component>
+      </release>
+    </product>
+  </host>
+</bea-product-information>
