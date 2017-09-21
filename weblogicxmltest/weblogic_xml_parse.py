@@ -23,3 +23,7 @@ print "WEBLOGIC_VERSION:", version
 e = getElementByName(element=release, tag="component", name="WebLogic Server")
 installdir = e[0].getAttribute("InstallDir")
 print "WEBLOGIC_INSTALL_DIR:", installdir
+print "----------------------------------------"
+
+
+
